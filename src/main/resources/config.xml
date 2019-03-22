@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 引用easyFramework.properties配置文件 -->
+    <properties resource="easyFramework.properties"/>
+
+    <typeAliases>
+        <typeAlias alias="User" type="com.bbs.bean.User"/>
+        <typeAlias alias="Board" type="com.bbs.bean.Board"/>
+        <typeAlias alias="UserLoginLog" type="com.bbs.bean.UserLoginLog"/>
+        <typeAlias alias="Post" type="com.bbs.bean.Post"/>
+        <typeAlias alias="Reply" type="com.bbs.bean.Reply"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${easyFramework.app.driver}"/>
+                <property name="url" value="${easyFramework.app.url}"/>
+                <property name="username" value="${easyFramework.app.name}"/>
+                <property name="password" value="${easyFramework.app.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 需要使用的Mapper -->
+    <mappers>
+        <mapper resource="com/bbs/mapper/BoardDao.xml"/>
+        <mapper resource="com/bbs/mapper/UserLoginLogDao.xml"/>
+        <mapper resource="com/bbs/mapper/PostDao.xml"/>
+        <mapper resource="com/bbs/mapper/ReplyDao.xml"/>
+        <mapper resource="com/bbs/mapper/UserDao.xml"/>
+        <!--<package name="com.bbs.mapper"/>-->
+    </mappers>
+
+
+
+</configuration>
